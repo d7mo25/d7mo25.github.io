@@ -1212,7 +1212,9 @@
                 </div>
             </div>
 
-            <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/abdulrahmanabualhana@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New message from portfolio site">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="John Doe" required>
@@ -1361,12 +1363,6 @@
             contactForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
 
-                if (contactForm.action.includes('YOUR_FORM_ID')) {
-                    formStatus.textContent = 'Form endpoint not configured yet — see setup note.';
-                    formStatus.className = 'form-status error';
-                    return;
-                }
-
                 const originalBtnText = submitBtn.textContent;
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Sending...';
@@ -1385,10 +1381,7 @@
                         formStatus.className = 'form-status success';
                         contactForm.reset();
                     } else {
-                        const data = await response.json().catch(() => null);
-                        formStatus.textContent = (data && data.errors)
-                            ? data.errors.map(err => err.message).join(', ')
-                            : 'Something went wrong. Please try again or email me directly.';
+                        formStatus.textContent = 'Something went wrong. Please try again or email me directly.';
                         formStatus.className = 'form-status error';
                     }
                 } catch (err) {
