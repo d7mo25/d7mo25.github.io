@@ -811,6 +811,33 @@
             box-shadow: 0 10px 20px var(--accent-glow);
         }
 
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .form-status {
+            font-size: 0.9rem;
+            margin-top: -5px;
+            min-height: 1.2em;
+            transition: opacity 0.3s;
+        }
+
+        .form-status.success {
+            color: var(--accent);
+        }
+
+        .form-status.error {
+            color: #ff5c5c;
+        }
+
+        .form-group input.invalid,
+        .form-group textarea.invalid {
+            border-color: #ff5c5c;
+        }
+
         /* --- SOCIAL ICONS --- */
         .social-links {
             display: flex;
@@ -1185,8 +1212,7 @@
                 </div>
             </div>
 
-            <form class="contact-form" action="#" method="POST"
-                onsubmit="event.preventDefault(); alert('Form submitted! In a real app, this would send an email.');">
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="John Doe" required>
@@ -1199,7 +1225,8 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" placeholder="Hello..." required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
+                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                <button type="submit" class="submit-btn" id="submit-btn">Send Message</button>
             </form>
         </footer>
     </main>
@@ -1325,7 +1352,56 @@
             revealObserver.observe(el);
         });
 
-        // --- 4. MOBILE MENU ---
+        // --- 4. CONTACT FORM (real submission via Formspree) ---
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                if (contactForm.action.includes('YOUR_FORM_ID')) {
+                    formStatus.textContent = 'Form endpoint not configured yet — see setup note.';
+                    formStatus.className = 'form-status error';
+                    return;
+                }
+
+                const originalBtnText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                formStatus.textContent = '';
+                formStatus.className = 'form-status';
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: new FormData(contactForm),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        formStatus.textContent = "Message sent — I'll get back to you soon.";
+                        formStatus.className = 'form-status success';
+                        contactForm.reset();
+                    } else {
+                        const data = await response.json().catch(() => null);
+                        formStatus.textContent = (data && data.errors)
+                            ? data.errors.map(err => err.message).join(', ')
+                            : 'Something went wrong. Please try again or email me directly.';
+                        formStatus.className = 'form-status error';
+                    }
+                } catch (err) {
+                    formStatus.textContent = 'Network error — please try again or email me directly.';
+                    formStatus.className = 'form-status error';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                }
+            });
+        }
+
+        // --- 5. MOBILE MENU ---
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         const navLinksItems = document.querySelectorAll('.nav-links a');
