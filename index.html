@@ -429,6 +429,30 @@
             color: var(--accent);
         }
 
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            align-self: flex-start;
+            min-height: 48px;
+            margin-top: clamp(20px, 3vw, 30px);
+            padding: 10px 0;
+            color: var(--text-main);
+            font-family: 'Syne', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--accent);
+            transition: color 0.3s, gap 0.3s;
+        }
+
+        .project-link:hover,
+        .project-link:focus-visible {
+            color: var(--accent);
+            gap: 14px;
+        }
+
         .project-img {
             background-color: #080808;
             display: flex;
@@ -1045,14 +1069,14 @@
 
             <div class="project reveal">
                 <div class="project-info">
-                    <h2 class="project-title">Smart Resume<br>Analyzer</h2>
-                    <p class="project-desc">AI-powered web application for resume optimization utilizing advanced
-                        Natural Language Processing to extract and match keywords against job descriptions.</p>
-                    <div class="tags"><span>FastAPI</span><span>Firebase</span><span>NLP</span></div>
+                    <h2 class="project-title">AIU Smart Resume<br>Analyzer</h2>
+                    <p class="project-desc">AI-powered web application that parses resumes and generates optimization suggestions using natural language processing, tested on more than 100 resumes.</p>
+                    <div class="tags"><span>FastAPI</span><span>NLP</span><span>Firebase</span></div>
+                    <a class="project-link" href="https://github.com/d7mo25/aiu-resume-analyzer" target="_blank" rel="noopener noreferrer" aria-label="View AIU Smart Resume Analyzer repository">View repository <span aria-hidden="true">↗</span></a>
                 </div>
                 <div class="project-img">
                     <div class="project-img-inner">
-                        <img src="resume_analyzer.jpg" alt="Smart Resume Analyzer UI"
+                        <img src="resume_analyzer.jpg" alt="AIU Smart Resume Analyzer interface"
                             onerror="this.src='https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop'">
                     </div>
                 </div>
@@ -1060,14 +1084,15 @@
 
             <div class="project reveal">
                 <div class="project-info">
-                    <h2 class="project-title">Face<br>Attendance</h2>
-                    <p class="project-desc">Computer vision attendance application using facial recognition for automated identification and tracking.</p>
-                    <div class="tags"><span>Python</span><span>OpenCV</span><span>Computer Vision</span></div>
+                    <h2 class="project-title">Bank Queue<br>Simulator</h2>
+                    <p class="project-desc">Java Swing desktop simulator for a multi-counter bank queue, using custom FIFO and binary-heap priority queues, statistical analysis, charts, and live playback.</p>
+                    <div class="tags"><span>Java</span><span>Swing</span><span>Data Structures</span></div>
+                    <a class="project-link" href="https://github.com/d7mo25/Bank_Queue_Simulator" target="_blank" rel="noopener noreferrer" aria-label="View Bank Queue Simulator repository">View repository <span aria-hidden="true">↗</span></a>
                 </div>
                 <div class="project-img">
                     <div class="project-img-inner">
-                        <img src="face_attendence.png" alt="Face Attendance System"
-                            onerror="this.src='https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=2070&auto=format&fit=crop'">
+                        <img src="bank_queue.jpg" alt="Bank Queue Simulator interface"
+                            onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop'">
                     </div>
                 </div>
             </div>
@@ -1075,12 +1100,13 @@
             <div class="project reveal">
                 <div class="project-info">
                     <h2 class="project-title">Tic-Tac-Toe<br>with AI</h2>
-                    <p class="project-desc">An intelligent Tic-Tac-Toe game powered by the minimax algorithm for strategic, optimal gameplay.</p>
-                    <div class="tags"><span>AI</span><span>Minimax</span><span>Algorithms</span></div>
+                    <p class="project-desc">Python game featuring an unbeatable AI opponent that uses the minimax algorithm for optimal move selection.</p>
+                    <div class="tags"><span>Python</span><span>Minimax</span><span>Algorithms</span></div>
+                    <a class="project-link" href="https://github.com/d7mo25/Tic-Tac-Toe-with-Artificial-Intelligence" target="_blank" rel="noopener noreferrer" aria-label="View Tic-Tac-Toe with AI repository">View repository <span aria-hidden="true">↗</span></a>
                 </div>
                 <div class="project-img">
                     <div class="project-img-inner">
-                        <img src="tic_tac_toe.jpg" alt="Tic-Tac-Toe with AI"
+                        <img src="tic_tac_toe.jpg" alt="Tic-Tac-Toe with AI game"
                             onerror="this.src='https://images.unsplash.com/photo-1611996575749-79a3a250f948?q=80&w=2070&auto=format&fit=crop'">
                     </div>
                 </div>
@@ -1088,14 +1114,15 @@
 
             <div class="project reveal">
                 <div class="project-info">
-                    <h2 class="project-title">MusicBot<br>for Discord</h2>
-                    <p class="project-desc">An automated Discord bot built to stream and manage music within community servers.</p>
-                    <div class="tags"><span>Java</span><span>Discord API</span><span>Automation</span></div>
+                    <h2 class="project-title">Web Vulnerability<br>Scanner</h2>
+                    <p class="project-desc">Modular Python tool that identifies common web application security misconfigurations and scores findings with a severity-weighted risk model.</p>
+                    <div class="tags"><span>Python</span><span>Security</span><span>Risk Analysis</span></div>
+                    <a class="project-link" href="https://github.com/d7mo25/web-vuln-scanner" target="_blank" rel="noopener noreferrer" aria-label="View Web Vulnerability Scanner repository">View repository <span aria-hidden="true">↗</span></a>
                 </div>
                 <div class="project-img">
                     <div class="project-img-inner">
-                        <img src="music_bot.jpg" alt="MusicBot for Discord"
-                            onerror="this.src='https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=2070&auto=format&fit=crop'">
+                        <img src="web_vulnerability_scanner.jpg" alt="Web Vulnerability Scanner interface"
+                            onerror="this.src='https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop'">
                     </div>
                 </div>
             </div>
@@ -1103,8 +1130,9 @@
             <div class="project reveal">
                 <div class="project-info">
                     <h2 class="project-title">Memory<br>Blocks Game</h2>
-                    <p class="project-desc">An interactive browser-based memory game designed with responsive controls and engaging gameplay.</p>
+                    <p class="project-desc">Interactive browser-based memory-matching game with a dynamic interface and score tracking.</p>
                     <div class="tags"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+                    <a class="project-link" href="https://github.com/d7mo25/Memory-blocks-game" target="_blank" rel="noopener noreferrer" aria-label="View Memory Blocks Game repository">View repository <span aria-hidden="true">↗</span></a>
                 </div>
                 <div class="project-img">
                     <div class="project-img-inner">
@@ -1143,8 +1171,9 @@
             <div class="exp-col reveal">
                 <h3>Tech Stack</h3>
                 <ul>
-                    <li><strong>Languages</strong>Python, JavaScript, SQL, HTML, CSS</li>
-                    <li><strong>Frameworks & Tools</strong>FastAPI, Django, Firebase, GitHub</li>
+                    <li><strong>Languages</strong>Python, Java, JavaScript, SQL, HTML, CSS</li>
+                    <li><strong>Frameworks & Tools</strong>Django, Django REST Framework, FastAPI, Firebase, Git, GitHub, Java Swing</li>
+                    <li><strong>Concepts</strong>REST APIs, CRUD, Data Structures & Algorithms, NLP, Penetration Testing, Incident Response</li>
                     <li><strong>Strengths</strong>Problem Solving, Teamwork, Project Management, Communication, Critical Thinking</li>
                     <li><strong>Languages</strong>Arabic (Native), English (Professional), Bahasa Melayu (Beginner)</li>
                 </ul>
@@ -1154,6 +1183,7 @@
                 <ul>
                     <li><strong>IBM · 2024</strong>Penetration Testing, Incident Response & Forensics</li>
                     <li><strong>IDP Education Ltd</strong>IELTS Certification</li>
+                    <li><strong>AIU</strong>Social Business Presentation Award</li>
                 </ul>
             </div>
         </div>
@@ -1237,7 +1267,7 @@
                         </svg>
                     </a>
                     <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/abdelrahman-m-k-abualhana-0a40ba283/" target="_blank"
+                    <a href="https://www.linkedin.com/in/abdelrahmanmk/" target="_blank"
                         class="social-link" aria-label="LinkedIn">
                         <svg viewBox="0 0 24 24">
                             <path
